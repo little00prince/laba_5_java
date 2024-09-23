@@ -1,15 +1,17 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        int i;
-        double e, s = 0, v = 0;
+        int i, j = 0, k = 0;
+        double e, s, v;
         double[] sides = new double[3];
         cube one = null;
-        ball two = null;
-        tetrapyramid three = null;
+        ball[][] two = new ball[2][2];
+        tetrapyramid[] three = new tetrapyramid[2];
         Scanner in = new Scanner(System.in);
         System.out.print("\n1-Прямоугольный параллелепипед\n2-Шар\n3-Правильный тетраэдр\n--------------------\nВыберите фигуру:");
         figure.setType(in.nextInt());
+        s = 0;
+        v = 0;
         //Ввод и обработка
         switch (figure.type) {
             case 1:
@@ -23,14 +25,15 @@ public class Main {
             case 2:
                 System.out.print("Радиус шара:");
                 e = in.nextDouble();
-                two = new ball(e);
-                two.workBall();
+                two[j][k] = new ball(e);
+                two[j][k].workBall();
                 break;
             case 3:
                 System.out.print("Длина стороны правильного тетраэдра:");
                 e = in.nextDouble();
-                three = new tetrapyramid(e);
-                three.workTetrapyramid();
+                three[j] = new tetrapyramid(e);
+                three[j].workTetrapyramid();
+                break;
             default:;
         }
         //Вывод результатов
@@ -57,15 +60,15 @@ public class Main {
                 break;
             case 2:
                 System.out.println("Шар");
-                e = two.getD();
+                e = two[j][k].getD();
                 System.out.printf("Диаметр: %f", e);
-                s = two.getArea();
-                v = two.getVolume();
+                s = two[j][k].getArea();
+                v = two[j][k].getVolume();
                 break;
             case 3:
                 System.out.print("Правильный тетраэдр");
-                s = three.getArea();
-                v = three.getVolume();
+                s = three[j].getArea();
+                v = three[j].getVolume();
                 break;
         }
         System.out.printf("\nПлощадь: %f", s);

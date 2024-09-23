@@ -6,8 +6,6 @@ public class cube extends figure{
         System.arraycopy(sides, 0, this.sides, 0, 3);
         view = 0;
         diagonal=0;
-        area=0;
-        volume =0;
     }
     public int getView() {
         return view;

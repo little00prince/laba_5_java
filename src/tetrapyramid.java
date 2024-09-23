@@ -3,8 +3,6 @@ public class tetrapyramid extends figure{
     public tetrapyramid(double a)
     {
         this.a = a;
-        area = 0;
-        volume = 0;
     }
     public void workTetrapyramid(){
         area = (Math.sqrt(3) * Math.pow(a, 2)) / 4;

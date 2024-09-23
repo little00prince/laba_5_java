@@ -4,8 +4,6 @@ public class ball extends figure{
     public ball(double r){
         this.r = r;
         d=0;
-        area=0;
-        volume =0;
     }
     public double getD() {
         return d;
