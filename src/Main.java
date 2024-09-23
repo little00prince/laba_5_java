@@ -1,20 +1,23 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        int type;
+        int i;
         double e, s = 0, v = 0;
+        double[] sides = new double[3];
         cube one = null;
         ball two = null;
         tetrapyramid three = null;
         Scanner in = new Scanner(System.in);
-        System.out.print("\n1-Куб\n2-Шар\n3-Правильный тетраэдр\n--------------------\nВыберите фигуру:");
-        type = in.nextInt();
+        System.out.print("\n1-Прямоугольный параллелепипед\n2-Шар\n3-Правильный тетраэдр\n--------------------\nВыберите фигуру:");
+        figure.setType(in.nextInt());
         //Ввод и обработка
-        switch (type) {
+        switch (figure.type) {
             case 1:
-                System.out.print("Длина стороны куба:");
-                e = in.nextDouble();
-                one = new cube(e);
+                System.out.print("Длины сторон прямоугольного параллелепипеда:");
+                for (i = 0; i < 3; i++) {
+                    sides[i] = in.nextDouble();
+                }
+                one = new cube(sides);
                 one.workCube();
                 break;
             case 2:
@@ -32,9 +35,21 @@ public class Main {
         }
         //Вывод результатов
         System.out.print("Фигура: ");
-        switch (type) {
+        switch (figure.type) {
             case 1:
-                System.out.print("Куб");
+                i = one.getView();
+                String view = null;
+                switch (i) {
+                    case 1:
+                        view = "Куб";
+                        break;
+                    case 2:
+                        view = "Прямоугольный параллелепипед";
+                        break;
+                    default:
+                        ;
+                }
+                System.out.print(view);
                 e = one.getDiagonal();
                 System.out.printf("\nДиагональ: %f", e);
                 s = one.getArea();
