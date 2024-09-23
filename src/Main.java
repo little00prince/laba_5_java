@@ -7,8 +7,9 @@ public class Main {
         cube one = null;
         ball[][] two = new ball[2][2];
         tetrapyramid[] three = new tetrapyramid[2];
+        triangular_prism four = null;
         Scanner in = new Scanner(System.in);
-        System.out.print("\n1-Прямоугольный параллелепипед\n2-Шар\n3-Правильный тетраэдр\n--------------------\nВыберите фигуру:");
+        System.out.print("\n1-Прямоугольный параллелепипед\n2-Шар\n3-Правильный тетраэдр\n4-Треугольная призма\n--------------------\nВыберите фигуру:");
         figure.setType(in.nextInt());
         s = 0;
         v = 0;
@@ -33,6 +34,14 @@ public class Main {
                 e = in.nextDouble();
                 three[j] = new tetrapyramid(e);
                 three[j].workTetrapyramid();
+                break;
+            case 4:
+                System.out.print("Длины сторон Треугольной призмы:");
+                for (i = 0; i < 3; i++) {
+                    sides[i] = in.nextDouble();
+                }
+                four = new triangular_prism(sides);
+                four.workе_triangular_prism();
                 break;
             default:;
         }
@@ -69,6 +78,11 @@ public class Main {
                 System.out.print("Правильный тетраэдр");
                 s = three[j].getArea();
                 v = three[j].getVolume();
+                break;
+            case 4:
+                System.out.println("Треугольная призма");
+                s = four.getArea();
+                v = four.getVolume();
                 break;
         }
         System.out.printf("\nПлощадь: %f", s);
